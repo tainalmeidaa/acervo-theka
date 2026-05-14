@@ -1,18 +1,18 @@
-
-export function AuthLayout() {
+import '../AuthLayout/AuthLayout.styles.css'
+export function AuthLayout({ children }) {
 
     return (
         <div className="auth-container">
-            <div className="sideart-container">
-                <div className = 'imagem-mascote'>
+            <section className="sideart-container">
+                <div className = 'mascote-container'>
                     <img src='src\assets\authlayout\mascote.svg' alt="Mascote"></img>
                 </div>
-                <div className = 'imagem-logo'>
+                <div className = 'logo-container'>
                     <img src='src\assets\authlayout\logo-laranja.svg' alt="Logo"></img>
                 </div>
-            </div>
+            </section>
             <form className='form-container'>
-                
+                { children }
             </form>
         </div>
 
