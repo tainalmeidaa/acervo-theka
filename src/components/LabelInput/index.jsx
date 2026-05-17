@@ -4,12 +4,12 @@ export function LabelInput({ label, tipo = "text", placeholder, id, value, onCha
     const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
 
     return (
-        <div className="label-input-component">
-            <label htmlFor={inputId} className="titulo-label">
+        <div className="labelinput__container">
+            <label htmlFor={inputId} className="labelinput__titulo">
                 {label}
             </label>
             <input 
-                className="campo-de-entrada"
+                className="labelinput__campoentrada"
                 type={tipo}
                 placeholder={placeholder}
                 id={inputId}

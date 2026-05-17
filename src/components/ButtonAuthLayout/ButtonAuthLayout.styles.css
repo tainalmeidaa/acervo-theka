@@ -1,0 +1,32 @@
+.ButtonAuthLayout__container{
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.ButtonAuthLayout{
+    background-color: var(--laranja300);
+    color: var(--branco);
+    width: 89px;
+    height: 44px;
+    border: none;
+    border-radius: 100px;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-style: 'Extra Bold';
+    font-size: 16px;
+    
+}
+
+.ButtonAuthLayout:hover{
+    cursor: pointer;
+    background-color: var(--branco);
+    color: var(--laranja300);
+    border: 2px solid var(--laranja300);
+    transition: background-color 0.5s;  
+                                             
+}
+
