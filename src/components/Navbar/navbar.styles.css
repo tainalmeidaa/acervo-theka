@@ -1,0 +1,45 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 56px 0;
+    width: 100%;
+    gap: 56px;
+}
+
+.navbar-logo {
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar button {
+    border: none;
+    background-color: transparent;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6.3rem;
+}
+
+.navbar-link {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+    color: var(--cinza500);
+}

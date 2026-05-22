@@ -1,0 +1,106 @@
+.authlayout__container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--laranja500);
+}
+
+/* --- Desenho e logo --- */
+
+.sideart__container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+
+}
+
+.sideart__mascote-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 400px;
+
+}
+
+.ilustracao-mascote {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+.sideart__logo-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.sideart__logo-container img {
+  max-height: 50px;
+  object-fit: contain;
+}
+
+/* --- Formulário a direita --- */
+
+.form__container {
+  flex:1;
+  width: 100%;  
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+  background-color: var(--branco);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  min-width: 400px;
+  min-height: 600px;
+
+}
+
+
+/* --- Resposividade Mobile --- */
+
+@media screen and (max-width: 768px) {
+  .authlayout__container {
+    flex-direction: column;
+  }
+
+  .sideart__container {
+    flex: 1;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .sideart__mascote-container {
+    height: 100%;
+    min-height: 100px;
+  }
+
+  .ilustracao-mascote {
+    max-width: 140%;
+    object-fit: contain;
+  }
+
+  .sideart__logo-container {
+    display: none;
+  }
+
+  .form__container {
+    flex: 3;
+    min-width: 300px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0px;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    gap:2rem;
+  }
+
+}

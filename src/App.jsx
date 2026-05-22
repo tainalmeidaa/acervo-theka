@@ -1,14 +1,30 @@
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css'
 import { AuthLayout } from './components/AuthLayout'
-//import { LabelInput } from './components/LabelInput'
+import { FormsTitle } from './components/FormsTitle'
+import { LabelInput } from './components/LabelInput'
+import { PageLogin } from './pages/PageLogin'
+import { PageRecoverPassword1 } from './pages/PageRecoverPassword1'
+import { PageRecoverPassword2 } from './pages/PageRecoverPassword2'
+import { PageCadastro } from './pages/PageCadastro'
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer/";
+
 
 function App() {
   return (
-    <main>
-      <AuthLayout />
-      {/* <LabelInput label="E-mail" tipo="email" placeholder="E-mail" />
-      <LabelInput label="Senha" tipo="password" placeholder="Senha" /> */}
-    </main>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <PageLogin/>} />
+        <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
+        <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
+        <Route path="/pagecadastro" element={ <PageCadastro/>} />
+      </Routes>
+    </BrowserRouter>
+    </>
+
+    
   )
 }
 
