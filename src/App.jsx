@@ -7,6 +7,8 @@ import { PageLogin } from './pages/PageLogin'
 import { PageRecoverPassword1 } from './pages/PageRecoverPassword1'
 import { PageRecoverPassword2 } from './pages/PageRecoverPassword2'
 import { PageCadastro } from './pages/PageCadastro'
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer/";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
       </Routes>
     </BrowserRouter>
     </>
+
+    
   )
 }
 

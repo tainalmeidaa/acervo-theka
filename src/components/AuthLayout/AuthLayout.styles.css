@@ -24,7 +24,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 0;
+  min-height: 400px;
 
 }
 
@@ -59,8 +59,9 @@
   background-color: var(--branco);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  max-width: 500px;
-  min-width: 0;
+  min-width: 400px;
+  min-height: 600px;
+
 }
 
 
@@ -79,6 +80,7 @@
 
   .sideart__mascote-container {
     height: 100%;
+    min-height: 100px;
   }
 
   .ilustracao-mascote {
@@ -92,11 +94,12 @@
 
   .form__container {
     flex: 3;
-    width: 100%;
+    min-width: 300px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 0px;
     padding: 2rem;
+    padding-bottom: 3rem;
     gap:2rem;
   }
 
