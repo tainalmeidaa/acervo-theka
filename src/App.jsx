@@ -6,9 +6,10 @@ import { LabelInput } from './components/LabelInput'
 import { PageLogin } from './pages/PageLogin'
 import { PageRecoverPassword1 } from './pages/PageRecoverPassword1'
 import { PageRecoverPassword2 } from './pages/PageRecoverPassword2'
-import { PageCadastro } from './pages/PageCadastro'
+import { PageRegistration } from './pages/PageRegistration'
 import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer/";
+import { Footer } from "./components/Footer";
+import { PageHome } from "./pages/PageHome";
 
 
 function App() {
@@ -16,10 +17,10 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <PageLogin/>} />
+        <Route path="/" element={ <PageHome/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
-        <Route path="/pagecadastro" element={ <PageCadastro/>} />
+        <Route path="/PageRegistration" element={ <PageRegistration/>} />
       </Routes>
     </BrowserRouter>
     </>
