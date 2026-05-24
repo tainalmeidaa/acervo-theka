@@ -6,9 +6,11 @@
     justify-content: center;
     align-items: center;
     padding-top: 14px;
+    gap: 50px;
 }
 
 
+/* --- seção do banner ---*/
 /* Banner */
 
 .hero__banner {
@@ -66,4 +68,65 @@ h3 {
     transform: scale(1.2);
     right: -160px;
 
+}
+
+/* --- seção livros em destaque --- */
+
+.spotlight__books {
+    background-color: rgb(133, 133, 151);
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.info__spotlight__books {
+    background-color: crimson;
+    width: 100px;
+    height: 100px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 20px;
+}
+
+
+ h1 {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--rosa600);
+}
+
+.info__spotlight__books p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    color: var(--cinza600);
+}
+
+.spotlight__cardbooks {
+    background-color: chartreuse;
+    width: 100px;
+    height: 100px;
+    flex: 1;
+    height: 100%;
+}
+
+
+/* --- seção de estatísticas --- */
+
+.our__statistics {
+    background-color: burlywood;
+    width: 1200px;
+    height: 300px;
+    margin-bottom: 50px;
 }
