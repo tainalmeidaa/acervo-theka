@@ -1,0 +1,16 @@
+.ButtonPageHome {
+    color: var(--rosa600);
+    width: 100%;
+    max-width: 316px;
+    min-height: 44px;
+    border: 2px solid var(--rosa600);
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Inter;
+    font-weight: 800;
+    font-style: Extra Bold;
+    font-size: 16px;
+}
