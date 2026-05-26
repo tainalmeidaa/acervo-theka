@@ -1,13 +1,14 @@
 .ButtonPageHome {
+    background-color: transparent;
     color: var(--rosa600);
     width: 100%;
-    max-width: 316px;
+    min-width: 316px;
     min-height: 44px;
     border: 2px solid var(--rosa600);
     border-radius: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     font-family: Inter;
     font-weight: 800;
