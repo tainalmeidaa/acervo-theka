@@ -1,0 +1,42 @@
+.metric__subcard {
+    min-width: 183px;
+    height: 144px;
+    border-radius: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subcard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.subcard__number {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 50px;
+}
+
+.subcard__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subcard__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.subcard__description {
+    font-family: Inter;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 14px;
+
+}

@@ -5,10 +5,12 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding-top: 14px;
+    padding: 3rem 0;
+    gap: 60px;
 }
 
 
+/* --- seção do banner ---*/
 /* Banner */
 
 .hero__banner {
@@ -26,7 +28,7 @@
 
 /* Elementos à esquerda do banner (logo, texto e botão)*/
 
-.info__banner {
+.information__banner {
     height: 100%;
     min-width: 380px;
     display: flex;
@@ -66,4 +68,103 @@ h3 {
     transform: scale(1.2);
     right: -160px;
 
+}
+
+/* --- seção livros em destaque --- */
+
+.specialbooks {
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.information__specialbooks {
+
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 0;
+    gap: 20px;
+}
+
+
+ h1 {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--rosa600);
+}
+
+.information__specialbooks p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    color: var(--cinza600);
+}
+
+.buttons__specialbooks{
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+}
+
+
+.specialbooks__cardbooks {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --- seção de estatísticas --- */
+
+.our__statistics {
+    min-width: 1200px;
+    min-height: 300px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 58px;
+}
+
+.statistic__content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 41px;
+}
+
+.statistic__highlightgroup{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    gap: 22px;
+}
+
+.statistic__subgroup{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
 }
