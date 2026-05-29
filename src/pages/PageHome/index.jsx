@@ -1,13 +1,40 @@
 import '../PageHome/PageHome.styles.css'
+import { useState } from 'react';
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { ButtonAuthLayout } from '../../components/ButtonAuthLayout';
 import { ButtonPageHome } from '../../components/ButtonPageHome';
 import { MetricCard } from '../../components/MetricCard';
 import { MetricSubCard } from '../../components/MetricSubCard';
-
+import { BookPageHome } from '../../components/BookPageHome';
 
 export function PageHome() {
+
+    const [bookList, setBookList] = useState([
+        { 
+            id: 0, 
+            title: "Os Sete Maridos de Evelyn Hugo", 
+            cover: "src/assets/pagehome/livro-1.png" 
+        },
+        { 
+            id: 1, 
+            title: "A Cabeça do Santo", 
+            cover: "src/assets/pagehome/livro-2.png" 
+        },
+        { 
+            id: 2, 
+            title: "Oração para desaparecer", 
+            cover: "src/assets/pagehome/livro-3.png" 
+        },
+    ]);
+
+    const rotateBooks = () => {
+        setBookList((currentList) => {
+            const [firstBook, ...remainingBooks] = currentList;
+            return [...remainingBooks, firstBook];
+        });
+    };
+
     return (
         <>
             <Navbar></Navbar>
@@ -40,7 +67,17 @@ export function PageHome() {
 
 
                     </div>
-                    <div className='specialbooks__cardbooks'></div>
+                    <div className='specialbooks__cardbooks'>
+                        {bookList.map((book, index) => (
+                            <BookPageHome 
+                                key={book.id}
+                                cover={book.cover}
+                                title={book.title}
+                                position={index} 
+                                onBookClick={index === 0 ? rotateBooks : undefined} 
+                            />
+                        ))}
+                    </div>
                 </section>
 
                 <section className='our__statistics'>

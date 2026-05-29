@@ -1,0 +1,58 @@
+
+/* estrutura do card de um livro apenas*/
+.book_container {
+    position: absolute;
+    max-width: 422px;
+    height: 90%;
+    overflow: hidden;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease-in-out;
+    border-radius: 20px;
+}
+
+.book_cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* botão da seta nos livros */
+.book_arrow_btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.book_arrow_btn:hover {
+    transform: scale(1.1);
+}
+
+/* --- empilhamento dos livros --- */
+
+/* livro - frente */
+.position-0 {
+    z-index: 3;
+    transform: translate(5px, 10px) scale(1) rotate(-5deg);
+    cursor: pointer;
+}
+
+/* livro - meio */
+.position-1 {
+    z-index: 2;
+    transform: translate(15px, -15px) scale(0.96) rotate(7deg);
+    pointer-events: none;
+}
+
+/* livro - ultimo */
+.position-2 {
+    z-index: 1;
+    transform: translate(5px, -25px) scale(0.95) rotate(-4deg);
+    pointer-events: none;
+}
