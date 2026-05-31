@@ -6,7 +6,7 @@ import { ButtonAuthLayout } from '../../components/ButtonAuthLayout';
 import { ButtonPageHome } from '../../components/ButtonPageHome';
 import { MetricCard } from '../../components/MetricCard';
 import { MetricSubCard } from '../../components/MetricSubCard';
-import { BookPageHome } from '../../components/BookPageHome';
+import { BookCard } from '../../components/BookCard';
 
 export function PageHome() {
 
@@ -69,11 +69,11 @@ export function PageHome() {
                     </div>
                     <div className='specialbooks__cardbooks'>
                         {bookList.map((book, index) => (
-                            <BookPageHome 
+                            <BookCard 
                                 key={book.id}
                                 cover={book.cover}
                                 title={book.title}
-                                position={index} 
+                                className={`fila_cardbooks position-${index}`}
                                 onBookClick={index === 0 ? rotateBooks : undefined} 
                             />
                         ))}

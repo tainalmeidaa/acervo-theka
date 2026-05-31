@@ -9,12 +9,13 @@ import { Footer } from "./components/Footer";
 import { ButtonPageHome } from "./components/ButtonPageHome"
 import { MetricCard } from './components/MetricCard'
 import { MetricSubCard } from './components/MetricSubCard'
-import { BookPageHome } from './components/BookPageHome';
+import { BookCard } from './components/BookCard';
 import { PageLogin } from './pages/PageLogin'
 import { PageRecoverPassword1 } from './pages/PageRecoverPassword1'
 import { PageRecoverPassword2 } from './pages/PageRecoverPassword2'
 import { PageRegistration } from './pages/PageRegistration'
 import { PageHome } from "./pages/PageHome";
+import { PageCollection } from "./pages/PageCollection";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <PageHome/>} />
+        <Route path="/" element={ <PageCollection/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
         <Route path="/PageRegistration" element={ <PageRegistration/>} />

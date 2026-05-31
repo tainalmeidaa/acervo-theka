@@ -1,10 +1,8 @@
-import '../BookPageHome/BookPageHome.styles.css'
+import './BookCard.styles.css'
 
-export function BookPageHome({ cover, title, position, onBookClick }) {
+export function BookCard({ cover, title, position, onBookClick, className = '' }) {
     return (
-        <div
-            className={`book_container position-${position}`}
-            onClick={onBookClick}>
+        <div className={`book_container ${className}`} onClick={onBookClick}>
 
             {/* renderiza a capa do livro */}
             <img src={cover} alt={`Capa do livro ${title}`} className="book_cover" />
