@@ -1,0 +1,257 @@
+/* --- Página inteira --- */
+.pagecollection__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    padding-bottom: 150px;
+}
+
+/* --- Seção novidades com o carrossel de livros ---*/
+.news_container {
+    width: 1200px;
+    height: 440px;
+    display: flex;
+}
+
+.news_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.news_title {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 103.33px;
+}
+
+.news_description {
+    font-family: DM Sans;
+    font-weight: 700;
+}
+
+
+.description_title_book {
+    color: var(--cinza600);
+    font-size: 40px;
+}
+
+.description_author_book {
+    color: var(--cinza600);
+    font-size: 20px;
+    margin-bottom: 4rem;
+}
+
+/* --- Carrossel de livros animado --- */
+.carousel_books {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    height: 100%;
+}
+
+/* Para os livros não clicados */
+.carousel_books_item {
+    flex: 1;
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.carousel_books_item .book_arrow_btn svg {
+    transform: rotate(-90deg);
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Para livro clicado */
+.carousel_books_item.active_card {
+    flex: 3;
+    opacity: 1;
+}
+
+.carousel_books_item.active_card .book_arrow_btn svg {
+    transform: rotate(0deg);
+}
+
+
+/* --- Container com as seções: busca e filtros, livros e botões para passar as páginas --- */
+
+.catalog_contaneiner {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+/* --- Campo de pesquisa e filtros de busca --- */
+
+.search_container {
+    width: 1200px;
+    height: 172px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search_title {
+    color: var(--rosa600);
+    font-family: DM Sans;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 64px;
+}
+
+.search_form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 30px 0 30px;
+    border-radius: 40px;
+    border: 2px solid var(--rosa600);
+    background-color: var(--branco);
+    box-sizing: border-box;
+}
+
+.search_input {
+    border: none;
+    outline: none;
+    font-family: Inter;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 24px;
+}
+
+.search_input::placeholder {
+    color: var(--cinza600);
+}
+
+.search_filter_group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+}
+
+.search_dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search_dropdown_item {
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    width: 200px;
+    border: 2px solid var(--rosa600);
+    border-radius: 100px;
+    padding: 10px 20px 10px 20px;
+    font-family: Inter;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--rosa600, #7a003c)
+}
+
+.arrow_bottom_icon {
+    color: var(--rosa600, #7a003c);
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search_button {
+    background-color: var(--rosa600);
+    color: var(--branco);
+    border: none;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 100px;
+    font-family: Inter;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- Catálogo com os livros disponíveis*/
+
+.catalog_books {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px 20px;
+}
+
+.catalog_card{
+    width: 100%;
+    height: 100%;
+}
+
+/* Retira o icon de seta no componente BookCard (padrão)*/
+.catalog_books .book_arrow_btn svg {
+    display: none;
+}
+
+/* Botão para adicinar livros ao catálogo*/
+.catalog_addbtn{
+    background-color: var(--rosa600);
+    position: relative;
+    z-index: 10;
+    top: -100px;
+    left: 200px;
+    border: none;
+    cursor: pointer;
+    width: 64px;
+    height: 44px;
+    border-radius: 30%;
+}
+    
+/* --- Botões para navegar pelo catálogo --- */
+
+.pagination_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- Para todos os botões de paginação --- */
+.pagination_arrow,
+.pagination_item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* --- Para os números que estão inativos --- */
+.pagination_item {
+    color: var(--cinza200);
+    width: 40px;
+    height: 40px;
+}
+
+/* --- Para o número que estiver ativo --- */
+.pagination_item_active {
+    background-color: var(--rosa600);
+    color: var(--branco);
+    border-radius: 50%;
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+}

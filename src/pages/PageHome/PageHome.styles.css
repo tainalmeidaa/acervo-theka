@@ -120,14 +120,42 @@ h3 {
 
 .specialbooks__cardbooks {
     flex: 1;
-    width: 100%;
+    position: relative;           
     height: 100%;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
+.fila_cardbooks{
+    position: absolute;
+    width: 420px;
+    height: 600px;
+}
+
+/* --- empilhamento dos livros --- */
+
+/* livro - frente */
+.position-0 {
+    z-index: 3;
+    transform: translate(0 , 25px) scale(1) rotate(-5deg);
+    cursor: pointer;
+}
+
+/* livro - meio */
+.position-1 {
+    z-index: 2;
+    transform: translate(0, -5px) scale(0.96) rotate(7deg);
+    pointer-events: none;
+}
+
+/* livro - ultimo */
+.position-2 {
+    z-index: 1;
+    transform: translate(25px, 25) scale(0.95) rotate(-4deg);
+    pointer-events: none;
+}
 
 /* --- seção de estatísticas --- */
 
