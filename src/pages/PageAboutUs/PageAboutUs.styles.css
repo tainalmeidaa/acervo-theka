@@ -1,0 +1,277 @@
+/* ----- Aplicando estilo no componente Navbar diferente do padrão definido ----- */
+
+/* Cor das letras nos botões */
+.aboutus_navbar button {
+    color: var(--branco);
+}
+
+/* Cor dos icons */
+.aboutus_navbar img {
+    filter: brightness(0) invert(100%);
+}
+
+/* ----- Conteúdo da página ----- */
+.aboutus_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    gap: 52px;
+}
+
+/* ---------- Banner inicial ---------- */
+.aboutus_hero {
+    width: 100%;
+    height: auto;
+    background-color: var(--rosa500);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 120px 0;
+}
+
+.hero_mascote {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 50px 0;
+}
+
+.hero_mascote img {
+    width: 120%;
+    min-width: 350px;
+    position: relative;
+    object-fit: contain;
+    right: 10%;
+    transform: rotate(15deg);
+}
+
+.hero_content {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 5%;
+
+}
+
+.hero_content_logo {
+    max-width: 400px;
+    object-fit: contain;
+}
+
+.hero_content_text {
+    max-width: 60%;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+
+/* -------- Tags ---------- */
+.aboutus_tags {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 120px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px;
+}
+
+.tag_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--rosa600);
+    border-radius: 50px;
+    padding: 5px 10px;
+    color: var(--rosa600);
+    flex-shrink: 0;
+    width: max-content;
+    height: auto;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 2rem;
+    
+}
+
+/* ----- Container com as seções 'Nossa história', 'Nossos valores' e 'Nosso time' ------ */
+.aboutus_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 120px;
+}
+
+/* definindo largura dos containers */
+.our_story,
+.our_values,
+.our_team {
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* --------- Nossa história --------*/
+.our_story {
+    background-color: var(--verdeoliva200);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.our_story_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5% 5%;
+}
+
+.our_story_title,
+.our_story_text {
+    color: var(--verdeoliva600);
+}
+
+.our_story_text {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    max-width: 75%;
+}
+
+.our_story_img {
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- Nossos Valores --------*/
+.our_values {
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.values_grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+
+/* ---------- Nossa Equipe -------- */
+.our_team {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 120px;
+}
+
+.our_team_cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+
+
+/* ------ RESPOSPONSIVIDADE MOBILE ------- */
+
+@media screen and (max-width: 768px) {
+
+    .aboutus_hero {
+        flex: 1;
+        display: flex;
+        flex-flow: column;
+        padding: 5rem 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .hero_mascote img {
+        scale: calc(1.2);                                        
+    }
+
+    .hero_content_logo {
+        max-width: 170px;
+        object-fit: contain;
+    }
+
+    .hero_content_text {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+
+    .aboutus_tags {
+        margin-bottom: 0;
+        padding-left: 25px;
+    }
+
+    .tag_item{
+        font-size: 1.5rem;
+    }
+
+    .our_story{
+        flex-flow: column;
+    }
+
+    .our_story_content{
+        gap: 40px;
+    }
+    
+    .our_story_title{
+        font-size: 2rem;
+    }
+
+    .our_story_text{
+        max-width: 100%;
+    }
+
+    .our_story_img  img{
+        max-height: 210px;
+        transform: rotate(90deg);
+        scale: calc(1.7);
+    
+    }
+
+    .our_values_title,
+    .our_team_title
+    {
+        font-size: 2.5rem;
+    }
+
+    .values_grid {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .our_team{
+        width: 80%;
+    }
+
+    .our_team_cards {
+        flex-flow: column;
+        gap: 30px;
+    }
+
+}

@@ -1,0 +1,24 @@
+.value_card {
+    width: 100%;
+    max-width: 387px;
+    height: 266px;
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.value_card_title {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 2rem;
+
+}
+
+.value_card_img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 80%;
+    width: 80%;
+}
