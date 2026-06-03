@@ -69,7 +69,6 @@ export function PageHome() {
                     </div>
                     
                     {/* ----- Fila dos livros em destaque ----- */}
-                    {/*
                     <div className='specialbooks__cardbooks'>
                         {bookList.map((book, index) => (
                             <BookCard
@@ -80,8 +79,9 @@ export function PageHome() {
                                 onBookClick={index === 0 ? rotateBooks : undefined}
                             />
                         ))}
-                    </div>*/}
+                    </div>
                 </section>
+                
                 {/* ----- Seção contendo dados estatísticos do acervo ------ */}
                 <section className='our__statistics'>
                     <h1>Nossas estatísticas</h1>

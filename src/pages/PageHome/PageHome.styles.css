@@ -1,6 +1,7 @@
 /* -- Página inteira -- */
 
 .pagehome__content {
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -75,7 +76,7 @@ h3 {
 /* --- Seção livros destaque da semana --- */
 
 .specialbooks {
-    width: 1200px;
+    max-width: 1200px;
     height: 600px;
     display: flex;
     justify-content: center;
@@ -106,7 +107,7 @@ h1 {
 .information__specialbooks p {
     font-family: 'Inter';
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.2rem;
     color: var(--cinza600);
 }
 
@@ -153,15 +154,14 @@ h1 {
 /* livro - ultimo */
 .position-2 {
     z-index: 1;
-    transform: translate(25px, 25) scale(0.95) rotate(-4deg);
+    transform: translate(0, 0) scale(1) rotate(0deg);
     pointer-events: none;
 }
 
 /* --- seção de estatísticas --- */
 
 .our__statistics {
-    min-width: 1200px;
-    min-height: 300px;
+    height: 100%;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -176,25 +176,21 @@ h1 {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    gap: 41px;
+    gap: 2rem;
 }
 
 .statistic__highlightgroup {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    max-width: 100%;
-    max-height: 100%;
-    gap: 22px;
+    gap: 1.5rem;
 }
 
 .statistic__subgroup {
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 20px;
+    gap: 1.5rem;
 }
 
 /* ---------- RESPONSIVIDADE MOBILE ---------- */
@@ -202,52 +198,98 @@ h1 {
 @media (max-width: 768px) {
 
     .pagehome__content {
-        width: 100%;
-        gap: 1rem;
+        padding-top: 6rem;
+        gap: 1.5rem;
         overflow: hidden;
     }
 
     .hero__banner {
         flex-flow: column;
-        max-width: 80%;
+        width: 90%;
+        height: auto;
         padding: 0px;
     }
 
-    .hero__banner img {
+    .logo__banner {
         width: 50%;
+    }
+
+    .information__banner {
+        padding-left: 20px;
+    }
+
+    .logo-texto__banner {
+        padding: 20px;
+        gap: 1rem;
+    }
+
+    .button__banner {
+        padding-left: 20px;
+    }
+
+    .mascote__banner img {
+        width: 100%;
+        bottom: 60px;
+        left: 50px;
     }
 
     .specialbooks {
         flex-flow: column;
-        width: 100%;
         max-width: 80%;
+        height: auto;
+        gap: 0.5rem;
+    }
+
+    .information__specialbooks {
+        padding: 0;
     }
 
     .specialbooks h1 {
         font-size: 2rem;
     }
 
+    .specialbooks__cardbooks {
+        width: 100%;
+        min-height: 400px;
+        margin: 2rem;
+    }
+
+    .fila_cardbooks {
+        width: 280px;
+        height: 400px;
+    }
+
+
+    .our__statistics {
+        width: 80%;
+        gap: 1rem;
+    }
+
 
     .statistic__content {
         flex-flow: column-reverse;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
     .our__statistics h1 {
         font-size: 2rem;
     }
 
-    .our__statistics,
-    .statistic__content, 
-    .statistic__subgroup
-    {
+    .statistic__subgroup {
+        width: 100%;
         flex-flow: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .statistic__highlightgroup svg {
+        height: auto;
     }
 
     .statistic__highlightgroup {
-        max-width: 50%;
+        width: 100%;
     }
 }

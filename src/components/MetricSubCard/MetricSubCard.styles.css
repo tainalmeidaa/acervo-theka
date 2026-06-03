@@ -40,3 +40,13 @@
     font-size: 14px;
 
 }
+
+
+@media (max-width: 768px) {
+
+    .metric__subcard {
+        min-width: 100%;
+    }
+    
+
+}
