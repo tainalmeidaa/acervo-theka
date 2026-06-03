@@ -11,20 +11,20 @@ import { BookCard } from '../../components/BookCard';
 export function PageHome() {
 
     const [bookList, setBookList] = useState([
-        { 
-            id: 0, 
-            title: "Os Sete Maridos de Evelyn Hugo", 
-            cover: "src/assets/pagehome/livro-1.png" 
+        {
+            id: 0,
+            title: "Os Sete Maridos de Evelyn Hugo",
+            cover: "src/assets/pagehome/livro-1.png"
         },
-        { 
-            id: 1, 
-            title: "A Cabeça do Santo", 
-            cover: "src/assets/pagehome/livro-2.png" 
+        {
+            id: 1,
+            title: "A Cabeça do Santo",
+            cover: "src/assets/pagehome/livro-2.png"
         },
-        { 
-            id: 2, 
-            title: "Oração para desaparecer", 
-            cover: "src/assets/pagehome/livro-3.png" 
+        {
+            id: 2,
+            title: "Oração para desaparecer",
+            cover: "src/assets/pagehome/livro-3.png"
         },
     ]);
 
@@ -37,9 +37,10 @@ export function PageHome() {
 
     return (
         <>
-            <Navbar></Navbar>
+            {/*<Navbar></Navbar>*/}
             <div className='pagehome__content'>
 
+                {/* ------ Banner principal --------  */}
                 <section className='hero__banner'>
                     <div className='information__banner'>
                         <div className='logo-texto__banner'>
@@ -55,6 +56,7 @@ export function PageHome() {
                     </div>
                 </section>
 
+                {/* ------- Seção para os livros novos da semana / destaques -------- */}
                 <section className='specialbooks'>
                     <div className='information__specialbooks'>
                         <img src='src/assets/pagehome/arrow-circle-right.svg' width={68} height={68}></img>
@@ -64,25 +66,28 @@ export function PageHome() {
                             <ButtonPageHome nome='Veja os destaques da semana' para=''></ButtonPageHome>
                             <ButtonPageHome nome='Acesse nosso acervo completo' para=''></ButtonPageHome>
                         </div>
-
-
                     </div>
+                    
+                    {/* ----- Fila dos livros em destaque ----- */}
+                    {/*
                     <div className='specialbooks__cardbooks'>
                         {bookList.map((book, index) => (
-                            <BookCard 
+                            <BookCard
                                 key={book.id}
                                 cover={book.cover}
                                 title={book.title}
                                 className={`fila_cardbooks position-${index}`}
-                                onBookClick={index === 0 ? rotateBooks : undefined} 
+                                onBookClick={index === 0 ? rotateBooks : undefined}
                             />
                         ))}
-                    </div>
+                    </div>*/}
                 </section>
-
+                {/* ----- Seção contendo dados estatísticos do acervo ------ */}
                 <section className='our__statistics'>
                     <h1>Nossas estatísticas</h1>
                     <div className='statistic__content'>
+
+                        {/* ----- Estatísticas principais - cards maiores ----- */}
                         <div className='statistic__highlightgroup'>
                             <MetricCard
                                 porcentagem='15%'
@@ -98,6 +103,8 @@ export function PageHome() {
                                 corTexto='var(--laranja600)'
                             ></MetricCard>
                         </div>
+                        
+                        {/* ----- Outras estatísticas - cards menores ----- */}
                         <div className='statistic__subgroup'>
                             <MetricSubCard
                                 numero='487'
@@ -130,9 +137,8 @@ export function PageHome() {
                         </div>
                     </div>
                 </section>
-
             </div>
-            <Footer></Footer>
+            {/*<Footer></Footer>*/}
         </>
     );
 }

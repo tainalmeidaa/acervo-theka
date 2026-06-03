@@ -27,7 +27,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <PageContact/>} />
+        <Route path="/" element={ <PageHome/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
         <Route path="/PageRegistration" element={ <PageRegistration/>} />
