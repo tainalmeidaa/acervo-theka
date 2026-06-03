@@ -19,6 +19,7 @@ import { PageRegistration } from './pages/PageRegistration';
 import { PageHome } from "./pages/PageHome";
 import { PageCollection } from "./pages/PageCollection";
 import { PageAboutUs } from "./pages/PageAboutUs";
+import { PageContact } from "./pages/PageContact";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <PageAboutUs/>} />
+        <Route path="/" element={ <PageContact/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
         <Route path="/PageRegistration" element={ <PageRegistration/>} />
