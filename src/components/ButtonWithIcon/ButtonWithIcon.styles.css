@@ -1,0 +1,14 @@
+.button-with-icon {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--rosa600);
+    color: var(--branco);
+    border: none;  
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: Inter;
+    font-weight: 800;
+    font-size: 1rem;
+    gap: 15px;
+}

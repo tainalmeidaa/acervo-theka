@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Navbar } from "../../components/Navbar";
 import { BookCard } from "../../components/BookCard"
 import { Footer } from "../../components/Footer";
+import { ModalMaterialForm } from "../../modals/ModalMaterialForm";
 
 export function PageCollection() {
 
@@ -27,6 +28,9 @@ export function PageCollection() {
     const handleBuscar = (dadosDoFormulario) => {
         console.log("Dados capturados e prontos para a API:", dadosDoFormulario);
     };
+
+    // ------- abrir modal para adicionar material -------
+    const [modalVisivel, setModalVisivel] = useState(false);
 
     // ---------- catálogo: lista de livros disponíveis ----------
     const catalogBooks = [
@@ -165,7 +169,7 @@ export function PageCollection() {
 
                                     {/* --- Botão "+" flutuante --- */}
                                     {index === 4 && (
-                                        <button className="catalog_addbtn">
+                                        <button className="catalog_addbtn" onClick={() => setModalVisivel(true)}>
                                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.75 9.375C18.75 9.67337 18.6315 9.95952 18.4205 10.1705C18.2095 10.3815 17.9234 10.5 17.625 10.5H10.5V17.625C10.5 17.9234 10.3815 18.2095 10.1705 18.4205C9.95952 18.6315 9.67337 18.75 9.375 18.75C9.07663 18.75 8.79048 18.6315 8.5795 18.4205C8.36853 18.2095 8.25 17.9234 8.25 17.625V10.5H1.125C0.826631 10.5 0.540483 10.3815 0.329505 10.1705C0.118526 9.95952 0 9.67337 0 9.375C0 9.07663 0.118526 8.79048 0.329505 8.5795C0.540483 8.36853 0.826631 8.25 1.125 8.25H8.25V1.125C8.25 0.826631 8.36853 0.540483 8.5795 0.329505C8.79048 0.118526 9.07663 0 9.375 0C9.67337 0 9.95952 0.118526 10.1705 0.329505C10.3815 0.540483 10.5 0.826631 10.5 1.125V8.25H17.625C17.9234 8.25 18.2095 8.36853 18.4205 8.5795C18.6315 8.79048 18.75 9.07663 18.75 9.375Z" fill="white" />
                                             </svg>
@@ -198,6 +202,10 @@ export function PageCollection() {
                 </section>
             </div>
             <Footer></Footer>
+            <ModalMaterialForm
+                isOpen={modalVisivel}
+                onClose={() => setModalVisivel(false)}
+            />
         </>
     );
 }

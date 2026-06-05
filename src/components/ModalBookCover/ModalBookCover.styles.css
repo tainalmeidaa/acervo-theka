@@ -1,0 +1,74 @@
+.book-cover__container {
+    position: relative;
+    /* Necessário para posicionar o botão fixo lá embaixo */
+    width: 237px;
+    height: 346px;
+    border-radius: 20px;
+    overflow: hidden;
+    /* Garante que a imagem ou o fundo respeitem as bordas arredondadas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A3A3A3;
+    /* Cinza padrão do Figma */
+}
+
+.book-cover__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.book-cover__placeholder-icon {
+    width: 48px;
+    /* Ajuste o tamanho do ícone central se precisar */
+    height: auto;
+    opacity: 0.7;
+}
+
+.book-cover__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Faz a foto preencher o espaço perfeitamente sem esticar ou achatar */
+}
+
+/* O botão bonito cinza escuro que fica sobreposto */
+.book-cover__button {
+    width: 90%;
+    position: absolute;
+    bottom: 1.5rem;
+    /* Distância da borda inferior */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    /* Cores tiradas do padrão do botão do Figma */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo escuro semi-transparente */
+    color: #FFFFFF;
+    backdrop-filter: blur(4px);
+    /* Efeito de vidro borrado atrás do botão, super moderno */
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
+    padding: 0.8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-style: Extra Bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.book-cover__button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.book-cover__button img {
+    width: 16px;
+    height: 16px;
+}
