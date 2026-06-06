@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { AuthLayout } from './components/AuthLayout';
 import { FormsTitle } from './components/FormsTitle';
@@ -12,6 +13,8 @@ import { MetricSubCard } from './components/MetricSubCard';
 import { BookCard } from './components/BookCard';
 import { ValuesCard } from "././components/ValuesCard";
 import { TeamCard } from "././components/TeamCard";
+import { ButtonDefault } from '././components/ButtonDefault';
+import { ButtonWithIcon } from "././components/ButtonWithIcon";
 import { PageLogin } from './pages/PageLogin';
 import { PageRecoverPassword1 } from './pages/PageRecoverPassword1';
 import { PageRecoverPassword2 } from './pages/PageRecoverPassword2';
@@ -20,6 +23,9 @@ import { PageHome } from "./pages/PageHome";
 import { PageCollection } from "./pages/PageCollection";
 import { PageAboutUs } from "./pages/PageAboutUs";
 import { PageContact } from "./pages/PageContact";
+import { ModalMaterialForm } from "./modals/ModalMaterialForm";
+import { TextAreaField } from "./components/TextAreaField";
+import { ModalBookCover } from "./components/ModalBookCover";
 
 
 function App() {
@@ -27,7 +33,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <PageHome/>} />
+        <Route path="/" element={ <PageCollection/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
         <Route path="/PageRegistration" element={ <PageRegistration/>} />

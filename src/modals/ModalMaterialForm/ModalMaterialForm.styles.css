@@ -1,0 +1,119 @@
+.modal-title {
+    color: var(--rosa600);
+    font-family: DM Sans;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 40px;
+    padding-left: 20px;
+
+}
+
+
+.modaladd_body-container {
+    display: flex;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.modaladd_book-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modaladd_form-grid {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+/* --- mudando cor dos labels, inputs e placeholders do componente padrão*/
+.modaladd_form-grid label {
+    color: var(--rosa600);
+}
+
+.modaladd_form-grid input {
+    background-color: transparent;
+    border: 2px solid var(--rosa600);
+}
+
+.modaladd_form-grid input::placeholder {
+    color: var(--cinza600);
+}
+
+.modaladd_form-grid>div {
+    width: 100%;
+}
+
+.bloco-titulo {
+    grid-area: titulo;
+}
+
+.bloco-paginas {
+    grid-area: paginas;
+}
+
+.bloco-isbn {
+    grid-area: isbn;
+}
+
+.bloco-autor {
+    grid-area: autor;
+}
+
+.bloco-ano {
+    grid-area: ano;
+}
+
+.bloco-editora {
+    grid-area: editora;
+}
+
+.bloco-resumo {
+    grid-area: resumo;
+}
+
+.bloco-resumo input {
+    height: 133px;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+.modaladd_btn-delete {
+    margin-right: auto;
+}
+
+
+/* ---------- VERSÃO DESKTOP ---------- */
+@media (min-width: 769px) {
+    .modaladd_form-grid {
+
+        grid-template-areas:
+            "titulo   titulo   paginas  isbn"
+            "autor    autor    ano      editora"
+            "resumo   resumo   resumo   resumo";
+    }
+}
+
+/* ---------- VERSÃO MOBILE ---------- */
+@media (max-width: 768px) {
+    .modaladd_body-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .modaladd_form-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "titulo"
+            "paginas"
+            "isbn"
+            "autor"
+            "ano"
+            "editora"
+            "resumo";
+    }
+}
