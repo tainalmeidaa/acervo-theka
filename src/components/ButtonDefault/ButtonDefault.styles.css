@@ -1,0 +1,12 @@
+.button-default {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: var(--rosa600);
+    border: 2px solid var(--rosa600);  
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: Inter;
+    font-weight: 800;
+    font-size: 1rem;
+}
