@@ -202,6 +202,7 @@ export function PageCollection() {
                 </section>
             </div>
             <Footer></Footer>
+
             <ModalMaterialForm
                 isOpen={modalVisivel}
                 onClose={() => setModalVisivel(false)}

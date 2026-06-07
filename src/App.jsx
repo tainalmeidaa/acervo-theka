@@ -33,10 +33,14 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <PageCollection/>} />
+        <Route path="/" element={ <Navbar/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
         <Route path="/PageRegistration" element={ <PageRegistration/>} />
+        <Route path="/PageHome" element={ <PageHome/>} />
+        <Route path="/PageCollection" element={ <PageCollection/>} />
+        <Route path="/PageAboutUs" element={ <PageAboutUs/>} />
+        <Route path="/PageContact" element={ <PageContact/>} />
       </Routes>
     </BrowserRouter>
     </>

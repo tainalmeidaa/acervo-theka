@@ -37,7 +37,7 @@ export function PageHome() {
 
     return (
         <>
-            {/*<Navbar></Navbar>*/}
+            <Navbar></Navbar>
             <div className='pagehome__content'>
 
                 {/* ------ Banner principal --------  */}
@@ -138,7 +138,7 @@ export function PageHome() {
                     </div>
                 </section>
             </div>
-            {/*<Footer></Footer>*/}
+            <Footer></Footer>
         </>
     );
 }

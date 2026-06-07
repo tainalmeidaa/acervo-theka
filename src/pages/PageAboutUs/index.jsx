@@ -64,9 +64,8 @@ export function PageAboutUs() {
 
     return (
         <>
-            {/*<div className='aboutus_navbar'>
-                  <Navbar></Navbar>
-            </div>*/}
+
+            <Navbar></Navbar>
             {/* ----------- Conteúdo da página ---------- */}
             <div className='aboutus_container'>
                 {/* ---------- Banner inicial ------------ */}
@@ -140,7 +139,7 @@ export function PageAboutUs() {
                     </section>
                 </section>
             </div>
-            {/*<Footer></Footer>*/}
+            <Footer></Footer>
         </>
     );
 }
