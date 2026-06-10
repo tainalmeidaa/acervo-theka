@@ -33,7 +33,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <Navbar/>} />
+        <Route path="/" element={ <PageLogin/>} />
         <Route path="/pagerecoverpassword1" element={ <PageRecoverPassword1/>} />
         <Route path="/pagerecoverpassword2" element={ <PageRecoverPassword2/>} />
         <Route path="/PageRegistration" element={ <PageRegistration/>} />

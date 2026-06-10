@@ -1,5 +1,6 @@
 import '../PageCollection/PageCollection.styles.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Navbar } from "../../components/Navbar";
 import { BookCard } from "../../components/BookCard"
@@ -17,8 +18,13 @@ export function PageCollection() {
         { id: 5, title: "Canção Para Ninar Menino Grande", author: "Conceição Evaristo - 2018", cover: "src/assets/pagecollection/livro5.svg" },
     ]);
 
+    /*const [bookList, setBookList] = useState([]); /* para a API */
+
     // ---------- carrossel: guarda o id do livro clicado ----------
     const [activeBookId, setActiveBookId] = useState(1);
+
+    /*const [activeBookId, setActiveBookId] = useState(null); /* para a API */
+
 
     // ---------- carrossel: descobre qual o livro ativo para mostrar o texto correto à esquerda ----------
     const livroEmDestaque = bookList.find(book => book.id === activeBookId);

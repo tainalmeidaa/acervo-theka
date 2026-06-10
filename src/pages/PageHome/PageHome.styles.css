@@ -6,8 +6,8 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding-top: 12rem;
-    padding-bottom: 6rem;
+    padding-top: 200px;
+    padding-bottom: 130px;
     gap: 2rem;
 }
 

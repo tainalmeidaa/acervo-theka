@@ -19,6 +19,7 @@
     overflow: hidden;
     width: 100%;
     gap: 52px;
+    padding-top: 200px;
 }
 
 /* ---------- Banner inicial ---------- */
@@ -29,7 +30,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    padding: 120px 0;
+    overflow: hidden;
 }
 
 .hero_mascote {
@@ -184,7 +185,7 @@
     gap: 30px;
     height: auto;
     border-radius: 20px;
-    margin-bottom: 120px;
+    padding-bottom: 130px;
 }
 
 .our_team_cards {
