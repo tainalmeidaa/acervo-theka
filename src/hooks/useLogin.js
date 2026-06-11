@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import  http  from '../api'
 
 export function useLogin() {
 
@@ -8,18 +9,11 @@ export function useLogin() {
 
     const realizarLogin = async ({ email, password }) => {
         try {
-            const response = await fetch('https://thekaapideploy2.pythonanywhere.com/auth/token/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
+            const response = await http.post('/auth/token/', {
                     username: email, email, password
-                })
             });
 
-            const data = await response.json();
-            localStorage.setItem('token', data.access);
+            localStorage.setItem('token', response.data.access);
             navigate('/PageCollection');
             alert("Tudo certo. Bem vindo(a)!");
 
