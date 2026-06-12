@@ -1,33 +1,18 @@
 import '../PageCollection/PageCollection.styles.css'
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Navbar } from "../../components/Navbar";
 import { BookCard } from "../../components/BookCard"
 import { Footer } from "../../components/Footer";
 import { ModalMaterialForm } from "../../modals/ModalMaterialForm";
+import { useCarousel } from '../../hooks/useCarousel';
+import { useCatalog } from '../../hooks/useCatalog';
 
 export function PageCollection() {
 
-    // ------- carrossel: lista de livros -------
-    const [bookList, setBookList] = useState([
-        { id: 1, title: "A Cabeça do Santo", author: "Socorro Acioli - 2014", cover: "src/assets/pagecollection/livro1.svg" },
-        { id: 2, title: "Oração Para Desaparecer", author: "Socorro Acioli - 2023", cover: "src/assets/pagecollection/livro2.svg" },
-        { id: 3, title: "A Biblioteca da Meia-Noite", author: "Matt Haig - 2020", cover: "src/assets/pagecollection/livro3.svg" },
-        { id: 4, title: "Nunca Vi A Chuva", author: "Stefano Volp - 2017", cover: "src/assets/pagecollection/livro4.svg" },
-        { id: 5, title: "Canção Para Ninar Menino Grande", author: "Conceição Evaristo - 2018", cover: "src/assets/pagecollection/livro5.svg" },
-    ]);
+    const { bookList, activeBookId, setActiveBookId, livroEmDestaque } = useCarousel();
+    const { catalogBooks } = useCatalog();
 
-    /*const [bookList, setBookList] = useState([]); /* para a API */
-
-    // ---------- carrossel: guarda o id do livro clicado ----------
-    const [activeBookId, setActiveBookId] = useState(1);
-
-    /*const [activeBookId, setActiveBookId] = useState(null); /* para a API */
-
-
-    // ---------- carrossel: descobre qual o livro ativo para mostrar o texto correto à esquerda ----------
-    const livroEmDestaque = bookList.find(book => book.id === activeBookId);
 
     // ---------- campo de busca: react-hook-form ----------
     const { register, handleSubmit } = useForm();
@@ -37,26 +22,6 @@ export function PageCollection() {
 
     // ------- abrir modal para adicionar material -------
     const [modalVisivel, setModalVisivel] = useState(false);
-
-    // ---------- catálogo: lista de livros disponíveis ----------
-    const catalogBooks = [
-        { id: 1, title: "A Cabeça do Santo", cover: "src/assets/pagecollection/livro1.svg" },
-        { id: 2, title: "Oração para desaparecer", cover: "src/assets/pagecollection/livro2.svg" },
-        { id: 3, title: "A Biblioteca da Meia-Noite", cover: "src/assets/pagecollection/livro3.svg" },
-        { id: 4, title: "Nunca vi a chuva", cover: "src/assets/pagecollection/livro4.svg" },
-        { id: 5, title: "Canção para Ninar Menino Grande", cover: "src/assets/pagecollection/livro5.svg" },
-        { id: 6, title: "Três", cover: "src/assets/pagecollection/livro6.svg" },
-        { id: 7, title: "O Avesso da Pele", cover: "src/assets/pagecollection/livro7.svg" },
-        { id: 8, title: "Garota, Mulher, Outras", cover: "src/assets/pagecollection/livro8.svg" },
-        { id: 9, title: "Água Fresca para as Flores", cover: "src/assets/pagecollection/livro9.svg" },
-        { id: 10, title: "Amor(es) Verdadeiro(s)", cover: "src/assets/pagecollection/livro10.svg" },
-        { id: 11, title: "Daisy Jones & The Six", cover: "src/assets/pagecollection/livro11.svg" },
-        { id: 12, title: "Torto Arado", cover: "src/assets/pagecollection/livro12.svg" },
-        { id: 13, title: "O Conto da Aia", cover: "src/assets/pagecollection/livro13.svg" },
-        { id: 14, title: "Os Sete Maridos de Evelyn Hugo", cover: "src/assets/pagecollection/livro14.svg" },
-        { id: 15, title: "Em Busca de Mim", cover: "src/assets/pagecollection/livro15.svg" },
-    ];
-
 
     return (
         <>
@@ -70,8 +35,8 @@ export function PageCollection() {
                     <div className='news_info'>
                         <h1 className='news_title'>Novidades da semana</h1>
                         <div className='news_description'>
-                            <p className='description_title_book'>{livroEmDestaque?.title}</p>
-                            <p className='description_author_book'>{livroEmDestaque?.author}</p>
+                            <p className='description_title_book'>{livroEmDestaque?.titulo}</p>
+                            <p className='description_author_book'>{livroEmDestaque?.autor}</p>
                         </div>
                     </div>
 
@@ -84,8 +49,8 @@ export function PageCollection() {
                             return (
                                 <BookCard
                                     key={book.id}
-                                    cover={book.cover}
-                                    title={book.title}
+                                    cover={book.capa}
+                                    title={book.titulo}
                                     // se ativo ganha a classe "active_card", caso contrário fica normal
                                     className={`carousel_books_item ${isAtivo ? 'active_card' : ''}`}
                                     // ao clicar, o livro passa a ser o ativo
@@ -163,13 +128,13 @@ export function PageCollection() {
                     </section>
 
                     {/* ----- Catálogo: livros disponíveis ----- */}
-                    <section>
+                    <div>
                         <div className='catalog_books'>
                             {catalogBooks.map((book, index) => (
                                 <div key={book.id} className="catalog_book_item">
                                     <BookCard
-                                        cover={book.cover}
-                                        title={book.title}
+                                        cover={book.capa}
+                                        title={book.titulo}
                                         className="catalog_card"
                                     />
 
@@ -184,7 +149,7 @@ export function PageCollection() {
                                 </div>
                             ))}
                         </div>
-                    </section>
+                    </div>
 
 
                     {/* ----- Botões: fazer navegação entre as seções dos livros */}
