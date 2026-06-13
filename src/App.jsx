@@ -24,8 +24,11 @@ import { PageCollection } from "./pages/PageCollection";
 import { PageAboutUs } from "./pages/PageAboutUs";
 import { PageContact } from "./pages/PageContact";
 import { ModalMaterialForm } from "./modals/ModalMaterialForm";
+import { ModalMaterialView } from "./modals/ModalMaterialView";
 import { TextAreaField } from "./components/TextAreaField";
-import { ModalBookCover } from "./components/ModalBookCover";
+import { BookCoverModal } from "./components/BookCoverModal";
+
+
 
 
 function App() {

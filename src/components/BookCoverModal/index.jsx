@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import './ModalBookCover.styles.css';
+import './BookCoverModal.styles.css';
 
-export function ModalBookCover({ imagePreview, onImageChange }) {
+export function BookCoverModal({ imagePreview, onImageChange, capaLivro }) {
     const fileInputRef = useRef(null);
 
     const handleButtonClick = () => {
@@ -19,7 +19,7 @@ export function ModalBookCover({ imagePreview, onImageChange }) {
             ) : (
                 <div className="book-cover__placeholder">
                     <img 
-                        src="src/assets/modalbookcover/image-icon.svg" 
+                        src='src/assets/bookcovermodal/image-icon.svg'
                         alt="Ícone de placeholder" 
                         className="book-cover__placeholder-icon"
                     />
@@ -33,7 +33,7 @@ export function ModalBookCover({ imagePreview, onImageChange }) {
             >
 
                 {imagePreview ? 'Alterar capa' : 'Adicionar capa'}
-                <img src="src/assets/modalbookcover/upload-icon.svg" alt="" />
+                <img src="src/assets/bookcovermodal/upload-icon.svg" alt="" />
             </button>
 
             <input 

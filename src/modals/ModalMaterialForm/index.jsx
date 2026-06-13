@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 
 // -------- Componentes -----------
-import { ModalBookCover } from "../../components/ModalBookCover";
+import { BookCoverModal } from "../../components/BookCoverModal";
 import { LabelInput } from '../../components/LabelInput';
 import { TextAreaField } from "../../components/TextAreaField";
 import { ButtonDefault } from '../../components/ButtonDefault';
@@ -45,14 +45,14 @@ export function ModalMaterialForm({ isOpen, onClose, materialSelecionado }) {
         if (materialSelecionado) {
             setForm({
                 titulo: materialSelecionado.titulo || '',
-                paginas: materialSelecionado.paginas || '',
+                paginas: materialSelecionado.numero_paginas || '',
                 isbn: materialSelecionado.isbn || '',
                 autor: materialSelecionado.autor || '',
-                ano: materialSelecionado.ano || '',
+                ano: materialSelecionado.ano_publicacao || '',
                 editora: materialSelecionado.editora || '',
                 resumo: materialSelecionado.resumo || ''
             });
-            setImagePreview(materialSelecionado.capaUrl || null);
+            setImagePreview(materialSelecionado.capa || null);
             setCapaArquivo(null);
         } else {
             setForm(estadoInicialForm);
@@ -96,7 +96,7 @@ export function ModalMaterialForm({ isOpen, onClose, materialSelecionado }) {
                 <div className="modaladd_body-container">
                     {/* --------- Campo com a capa do livro --------- */}
                     <div className="modaladd_book-container">
-                        <ModalBookCover imagePreview={imagePreview} onImageChange={handleImageChange} />
+                        <BookCoverModal imagePreview={imagePreview} onImageChange={handleImageChange} capaOriginal={materialSelecionado?.capa} />
                     </div>
 
                     {/* --------- Formulario para adicionar ou editar material ---------*/}
@@ -172,11 +172,11 @@ export function ModalMaterialForm({ isOpen, onClose, materialSelecionado }) {
                 {/* ----- Caso o material tenha sido adicionado, o modal ganha o botão 'Deletar' ----- */}
                 {materialSelecionado && (
                     <div className="modaladd_btn-delete">
-                        <ButtonWithIcon nome="Deletar" Icon={IconTrash} onClick={handleDelete} className="btn-deletar" />
+                        <ButtonWithIcon nome="Deletar" Icon={IconTrash} bg_color={'var(--rosa600)'} onClick={handleDelete} className="btn-deletar" />
                     </div>
                 )}
                 <ButtonDefault nome="Cancelar" onClick={onClose} />
-                <ButtonWithIcon nome="Salvar" Icon={IconSave} onClick={onClose} />
+                <ButtonWithIcon nome="Salvar" Icon={IconSave} bg_color={'var(--rosa600)'} onClick={onClose} />
             </Modal.Footer>
         </Modal>
     );
