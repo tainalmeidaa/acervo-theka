@@ -1,10 +1,10 @@
 import '../MetricSubCard/MetricSubCard.styles.css';
 
-export function MetricSubCard({ numero, descricao, iconeSvg, corFundo, corTexto }) { 
+export function MetricSubCard({ numero, descricao, Icon, bg_color, tx_color }) { 
 
   {/* --- cor padrão para o card e o conteúdo --- */}
-  const fundoCard = corFundo || 'var(--rosa500)';
-  const textoCard = corTexto || 'var(--rosa200)';
+  const fundoCard = bg_color || 'var(--cinza500)';
+  const textoCard = tx_color || 'var(--cinza200)';
 
   return (
     <div className="metric__subcard" style={{ backgroundColor: fundoCard }}>
@@ -17,7 +17,7 @@ export function MetricSubCard({ numero, descricao, iconeSvg, corFundo, corTexto 
         
         {/* --- definir icon por prop --- */}
         <div className="subcard__icon" style={{ color: textoCard }}>
-          {iconeSvg}
+          {Icon && <Icon size={20}/>}
         </div>
       </div>
 
