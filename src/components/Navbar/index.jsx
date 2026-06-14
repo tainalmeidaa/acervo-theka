@@ -27,7 +27,7 @@ export function Navbar() {
                 </button>
 
                 {/* ----- Logo 'Theka' fica escondida na versão desktop ---- */}
-                <div className='navbar-logo-theka d-lg-none'>
+                <div className='navbar-logo-theka d-md-none'>
                     <img className='navbar-logo-theka' src='src/assets/navbar/logo-theka.svg'
                         alt="TheKa Texto"
                         className="logo-text 
@@ -38,7 +38,7 @@ export function Navbar() {
 
                 <div className='navbar-menu 
                         d-none 
-                        d-lg-flex 
+                        d-md-flex 
                         align-items-center'
                 >
                     <ul className="navbar-list 
