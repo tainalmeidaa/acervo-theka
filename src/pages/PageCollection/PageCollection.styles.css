@@ -10,70 +10,80 @@
 }
 
 /* --- Seção novidades com o carrossel de livros ---*/
-.news_container {
-    width: 1200px;
-    height: 440px;
-    display: flex;
+.nov_container {
+    max-width: 1200px;
+    width: 100%;
+    /*display: flex;*/
+    display: grid;
+
+    grid-template-areas: 
+        "titulo carrossel"
+        "descricao carrossel";
+
+    grid-template-columns: 1fr 1fr; /* Layout desktop original */
+    gap: 20px;
 }
 
-.news_info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-}
+/* ---- Ordenando os elementos da seção novidades ---*/
 
-.news_title {
+.nov_title { grid-area: titulo; }
+.nov_carousel-books { grid-area: carrossel; }
+.nov_description { grid-area: descricao; }
+
+.nov_title {
+    color: var(--rosa600);
     font-family: DM Sans;
     font-weight: 700;
     font-size: 103.33px;
 }
 
-.news_description {
+.nov_description {
     font-family: DM Sans;
     font-weight: 700;
 }
 
 
-.description_title_book {
+.description_title-book {
     color: var(--cinza600);
     font-size: 40px;
 }
 
-.description_author_book {
+.description_author-book {
     color: var(--cinza600);
     font-size: 20px;
     margin-bottom: 4rem;
 }
 
 /* --- Carrossel de livros animado --- */
-.carousel_books {
+.nov_carousel-books {
     flex: 1;
     display: flex;
     gap: 10px;
-    height: 100%;
+    max-height: 610px;
+    
 }
 
+
 /* Para os livros não clicados */
-.carousel_books_item {
+.carousel_books-item {
     flex: 1;
     cursor: pointer;
+    min-height: 100px;
     transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
 }
 
-.carousel_books_item .book_arrow_btn svg {
+.carousel_books-item .book_arrow_btn svg {
     transform: rotate(-90deg);
     transition: transform 0.4s ease-in-out;
 }
 
 /* Para livro clicado */
-.carousel_books_item.active_card {
+.carousel_books-item.active_card {
     flex: 3;
     opacity: 1;
 }
 
-.carousel_books_item.active_card .book_arrow_btn svg {
+.carousel_books-item.active_card .book_arrow_btn svg {
     transform: rotate(0deg);
 }
 
@@ -90,75 +100,6 @@
 
 /* --- Campo de pesquisa e filtros de busca --- */
 
-.search_container {
-    width: 1200px;
-    height: 172px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.search_title {
-    color: var(--rosa600);
-    font-family: DM Sans;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 64px;
-}
-
-.search_form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0 30px 0 30px;
-    border-radius: 40px;
-    border: 2px solid var(--rosa600);
-    background-color: var(--branco);
-    box-sizing: border-box;
-}
-
-.search_input {
-    border: none;
-    outline: none;
-    font-family: Inter;
-    font-weight: 300;
-    font-style: Light;
-    font-size: 24px;
-}
-
-.search_input::placeholder {
-    color: var(--cinza600);
-}
-
-.search_filter_group {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    height: 100%;
-}
-
-.search_dropdown {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.search_dropdown_item {
-    appearance: none;
-    cursor: pointer;
-    outline: none;
-    width: 200px;
-    border: 2px solid var(--rosa600);
-    border-radius: 100px;
-    padding: 10px 20px 10px 20px;
-    font-family: Inter;
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--rosa600, #7a003c)
-}
-
 .arrow_bottom_icon {
     color: var(--rosa600, #7a003c);
     position: absolute;
@@ -167,26 +108,14 @@
     align-items: center;
 }
 
-.search_button {
-    background-color: var(--rosa600);
-    color: var(--branco);
-    border: none;
-    height: 44px;
-    padding: 0 20px;
-    border-radius: 100px;
-    font-family: Inter;
-    font-weight: 800;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 /* --- Catálogo com os livros disponíveis*/
 
+.catalog_contaneiner {
+    max-width: 1200px;
+    width: 100%;
+}
+
 .catalog_books {
-    width: 1200px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px 20px;
@@ -214,10 +143,10 @@
     left: 0;
     width: 100%;
     height: 40%;
-    padding: 16px;
+    padding: 14px;
     border-radius: 20px;
     box-sizing: border-box;
-    overflow-y: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -236,8 +165,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 0;
-    width: 70%;
     font-size: 1rem;
 }
 
@@ -252,6 +179,7 @@
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+    width: 100%;
 }
 
 /*===========================================*/
@@ -310,4 +238,65 @@
     font-size: 3rem;
     width: 50px;
     height: 50px;
+}
+
+@media screen and (max-width: 768px){
+    .pagecollection__container {
+        gap: 4rem;
+    }
+    .nov_container{
+        grid-template-areas: 
+            "titulo"
+            "carrossel"
+            "descricao";
+        grid-template-columns: 1fr;
+        max-width: 90%;
+    }
+
+    .nov_title { 
+        font-size: 2.9rem;
+    }
+
+
+    .nov_carousel-books {
+        flex-direction: column;
+        flex: none;
+        height: 600px
+    }
+
+    .description_title-book {
+        font-size: 35px;
+    }
+
+    .carousel_books-item {
+        min-height: 0;
+        flex: 1; 
+        
+    }
+
+    .catalog_contaneiner {
+        gap: 0;
+    }
+    
+    .catalog_books {
+        grid-template-columns: repeat(2, 1fr);
+        scale: calc(0.9);
+    }
+      
+    .catalog_book_camada {
+        height: 50%; 
+    }
+
+    .catalog_addbtn{
+        top: -600px;
+        left: 350px;
+    }
+
+    .camada_info{
+        width: 70%;
+    }
+
+    .pagination_container {
+        justify-content: center;
+    }
 }

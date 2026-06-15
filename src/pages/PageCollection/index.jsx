@@ -2,25 +2,32 @@ import '../PageCollection/PageCollection.styles.css'
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Navbar } from "../../components/Navbar";
-import { BookCard } from "../../components/BookCard"
-import { ButtonWithIcon } from "../../components/ButtonWithIcon"
+import { BookCard } from "../../components/BookCard";
+import { ButtonWithIcon } from "../../components/ButtonWithIcon";
 import IconEye from '../../assets/pagecollection/eye.svg?react';
+import { SearchBar } from '../../components/SearchBar';
 import { Footer } from "../../components/Footer";
 import { ModalMaterialForm } from "../../modals/ModalMaterialForm";
 import { ModalMaterialView } from "../../modals/ModalMaterialView";
 import { useCarousel } from '../../hooks/useCarousel';
 import { useCatalog } from '../../hooks/useCatalog';
 
+
 export function PageCollection() {
 
     const { bookList, activeBookId, setActiveBookId, livroEmDestaque } = useCarousel();
-    const { catalogBooks } = useCatalog();
-
 
     // ---------- campo de busca: react-hook-form ----------
+    const [filtros, setFiltros] = useState({});
+    const { catalogBooks } = useCatalog(filtros);
     const { register, handleSubmit } = useForm();
     const handleBuscar = (dadosDoFormulario) => {
-        console.log("Dados capturados e prontos para a API:", dadosDoFormulario);
+        const { pesquisa, genero, editora } = dadosDoFormulario;
+        const params = {};
+        if (pesquisa) params.search = pesquisa;
+        if (genero) params.genero_nome = genero;
+        if (editora) params.editora_nome = editora;
+        setFiltros(params);
     };
 
     // ------- estado inicial dos modais -------
@@ -34,19 +41,20 @@ export function PageCollection() {
             <div className='pagecollection__container'>
 
                 {/* ---------- Novidades da semana + Carrossel ----------- */}
-                <section className='news_container'>
+                <section className='nov_container'>
 
                     {/* ----- Informações sobre as novidades: título, livro, autor/ano ----- */}
-                    <div className='news_info'>
-                        <h1 className='news_title'>Novidades da semana</h1>
-                        <div className='news_description'>
-                            <p className='description_title_book'>{livroEmDestaque?.titulo}</p>
-                            <p className='description_author_book'>{livroEmDestaque?.autor}</p>
-                        </div>
+
+                    <h1 className='nov_title'>Novidades da semana</h1>
+
+                    <div className='nov_description'>
+                        <p className='description_title-book'>{livroEmDestaque?.titulo}</p>
+                        <p className='description_author-book'>{`${livroEmDestaque?.autor || 'Autor desconhecido'} - ${livroEmDestaque?.ano_publicacao || 'Data desconhecida'}`}</p>
                     </div>
 
+
                     {/* ----- Carrossel com livros em destaque ----- */}
-                    <div className='carousel_books'>
+                    <div className='nov_carousel-books'>
                         {bookList.map((book) => {
                             // se o id deste livro for igual ao id ativo, ele recebe a classe "ativo"
                             const isAtivo = book.id === activeBookId;
@@ -57,7 +65,7 @@ export function PageCollection() {
                                     cover={book.capa}
                                     title={book.titulo}
                                     // se ativo ganha a classe "active_card", caso contrário fica normal
-                                    className={`carousel_books_item ${isAtivo ? 'active_card' : ''}`}
+                                    className={`carousel_books-item ${isAtivo ? 'active_card' : ''}`}
                                     // ao clicar, o livro passa a ser o ativo
                                     onBookClick={() => setActiveBookId(book.id)}
                                 />
@@ -69,101 +77,39 @@ export function PageCollection() {
                 {/* ---------- Seção contendo campo de busca, catálogo e botões (ir - voltar) ---------- */}
                 <section className='catalog_contaneiner'>
 
-                    {/* ----- Campo para buscar os livros e aplicar filtros ----- */}
-                    <section className='search_container'>
-                        <h2 className='search_title'>Veja nosso catálogo</h2>
-                        <form className='search_form' onSubmit={handleSubmit(handleBuscar)}>
-
-                            {/* --- Campo para digitar nome do livro à esquerda ---*/}
-                            <input
-                                type="text"
-                                placeholder="Fazer busca"
-                                className='search_input'
-                                {...register("pesquisa")}
-                            />
-
-                            {/* --- Grupo de filtros à direita --- */}
-                            <div className='search_filter_group'>
-
-                                {/* --- Dropdown gênero --- */}
-                                <div className='search_dropdown'>
-                                    <select
-                                        className='search_dropdown_item'
-                                        {...register("genero")}>
-                                        <option value="">Gênero</option>
-                                        <option value="romance">Romance</option>
-                                        <option value="terror">Terror</option>
-                                        <option value="conto">Conto</option>
-                                        <option value="ficcao">Ficção</option>
-                                    </select>
-                                    <span className='arrow_bottom_icon'>
-                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                        </svg>
-                                    </span>
-                                </div>
-
-                                {/* --- Dropdown editora --- */}
-                                <div className='search_dropdown'>
-                                    <select
-                                        className='search_dropdown_item'
-                                        {...register("editora")}>
-                                        <option value="">Editora</option>
-                                        <option value="companhia">Companhia das Letras</option>
-                                        <option value="intrinseca">Intrínseca</option>
-                                        <option value="record">Record</option>
-                                        <option value="darkside">DarkSide</option>
-                                    </select>
-                                    <span className='arrow_bottom_icon'>
-                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                                        </svg>
-                                    </span>
-                                </div>
-
-                                {/* ---- Botão de busca ---- */}
-                                <button type="submit" className='search_button'>
-                                    <span>Buscar</span>
-                                    <svg className='busca_botao_lupa' width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </form>
-                    </section>
+                    {/* Campo de busca */}
+                    <SearchBar onBuscar={handleBuscar} />
 
                     {/* ----- Catálogo: livros disponíveis ----- */}
-                    <div>
-                        <div className='catalog_books'>
-                            {catalogBooks.map((book, index) => (
-                                <div key={book.id} className="catalog_book_item">
-                                    <BookCard
-                                        cover={book.capa}
-                                        title={book.titulo}
-                                        className="catalog_card"
-                                    />
+                    <div className='catalog_books'>
+                        {catalogBooks.map((book, index) => (
+                            <div key={book.id} className="catalog_book_item">
+                                <BookCard
+                                    cover={book.capa}
+                                    title={book.titulo}
+                                    className="catalog_card"
+                                />
 
-                                    {/* -- Camada invisível. Surge ao passar o mouse nos livros --*/}
-                                    <div className="catalog_book_camada">
-                                        <div className="camada_info">
-                                            <p style={{ fontWeight: '800' }}>{book.titulo}</p>
-                                            <p>{book.autor}, {book.ano_publicacao}</p>
-                                        </div>
-                                        <div className="camada-botao">
-                                            <ButtonWithIcon Icon={IconEye} bg_color={'var(--cinza600)'} onClick={() => { console.log("Livro clicado:", book); setLivroSelecionado(book); setModalViewVisivel(true) }} />
-                                        </div>
-
+                                {/* -- Camada invisível. Surge ao passar o mouse nos livros --*/}
+                                <div className="catalog_book_camada">
+                                    <div className="camada_info">
+                                        <p style={{ fontWeight: '800' }}>{book.titulo}</p>
+                                        <p>{book.autor}, {book.ano_publicacao}</p>
+                                    </div>
+                                    <div className="camada-botao">
+                                        <ButtonWithIcon Icon={IconEye} bg_color={'var(--cinza600)'} onClick={() => { console.log("Livro clicado:", book); setLivroSelecionado(book); setModalViewVisivel(true) }} />
                                     </div>
 
-                                    {/* --- Botão "+" flutuante --- */}
-                                    {index === 4 && (
-                                        <button className="catalog_addbtn" onClick={() => { setLivroSelecionado(null); setModalVisivel(true); }}>
-                                            <img src='src/assets/pagecollection/add-button.svg' />
-                                        </button>
-                                    )}
                                 </div>
-                            ))}
-                        </div>
+
+                                {/* --- Botão "+" flutuante --- */}
+                                {index === 4 && (
+                                    <button className="catalog_addbtn" onClick={() => { setLivroSelecionado(null); setModalVisivel(true); }}>
+                                        <img src='src/assets/pagecollection/add-button.svg' />
+                                    </button>
+                                )}
+                            </div>
+                        ))}
                     </div>
 
 
@@ -188,18 +134,17 @@ export function PageCollection() {
                 </section>
             </div>
             <Footer></Footer>
-        
             <ModalMaterialView
                 isOpen={modalViewVisivel}
                 onClose={() => setModalViewVisivel(false)}
                 material={livroSelecionado}
                 onEditClick={() => {
                     setModalViewVisivel(false);
-                    setModalVisivel(true); 
+                    setModalVisivel(true);
                 }}
             />
 
-         
+
             <ModalMaterialForm
                 isOpen={modalVisivel}
                 onClose={() => setModalVisivel(false)}

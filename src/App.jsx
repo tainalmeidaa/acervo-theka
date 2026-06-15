@@ -27,6 +27,7 @@ import { ModalMaterialForm } from "./modals/ModalMaterialForm";
 import { ModalMaterialView } from "./modals/ModalMaterialView";
 import { TextAreaField } from "./components/TextAreaField";
 import { BookCoverModal } from "./components/BookCoverModal";
+import { SearchBar } from './components/SearchBar';
 
 
 
