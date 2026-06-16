@@ -171,6 +171,11 @@ h3 {
     gap: 58px;
 }
 
+.our__statistics h1{
+    color: var(--rosa600);
+    font-weight: 600;
+}
+
 .statistic__content {
     width: 100%;
     height: 100%;
