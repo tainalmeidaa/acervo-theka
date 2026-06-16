@@ -1,0 +1,200 @@
+/* ---------- Conteúdo principal da página, onde tudo é centralizado ------------ */
+.page_contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+    padding-bottom: 130px;
+}
+
+/* ---------- Container para Título da página, Mapa e mais informações, e Formulário ---------- */
+.contact {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.contact__title {
+    color: var(--rosa600);
+    font-family: DM Sans;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* ------ Container para o Mapa e mais informações, e o Formulário ---------- */
+.contact__content {
+    display: flex;
+    justify-content: center;
+    background-color: #F8F8F8;
+    border-radius: 20px;
+}
+
+/* ----- Seção com a localização das unidades, botões para navegar e a descrição do endereço ----- */
+.contact__map-area {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.contact__map {
+    height: 350px;
+    width: 100%;
+}
+
+.contact__map iframe{
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    border: none;
+    display: block;
+    border-top-left-radius: 20px;
+}
+
+
+
+/* Seção para os botões que navegam entre as unidades no mapa */
+.contact__units {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+/* Caracterśticas compartilhadas pelos dois botões do mapa*/
+.contact__unit-button {
+    color: var(--branco);
+    background-color: var(--cinza300);
+    border: none;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 100px;
+    font-family: Inter;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.contact__unit-button.active {
+    background-color: var(--rosa600);
+    color: var(--branco);
+}
+
+.contact__address {
+    color: var(--cinza600);
+    max-width: 90%;
+    font-family: Inter;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 1rem;
+    padding-left: 20px;
+
+}
+
+/* ---------- Formulário ---------- */
+.contact__form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 40px;
+}
+
+/* --- Mudando as cores padrão do input, label e placeholder do componente 'InputLabel' utilizado --- */
+.contact__form label {
+    color: var(--rosa700);
+}
+
+.contact__form input {
+    border: 2px solid var(--rosa700);
+}
+
+.contact__form input::placeholder {
+    color: var(--rosa700);
+}
+
+
+/* ----- Título Formulário ----- */
+.contact__form-title {
+    color: var(--rosa600);
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* ---- Container para botões do Formulário ----- */
+.contact__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 10px;
+    
+}
+
+
+.contact__cancel-button {
+    background-color: var(--branco);
+    color: var(--rosa600);
+    border: 2px solid var(--rosa600);
+}
+
+.contact__submit-button {
+    background-color: var(--rosa600);
+    color: var(--branco);
+    border: none;
+}
+
+
+/* ---------- RESPONSIVIDADE MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+    .page_contact{
+        padding: 30px;
+        min-width: 300px;
+    }
+
+    .contact {
+        padding-top: 170px;
+    }
+
+    .contact__content {
+        flex-flow: column;
+        gap: 20px;   
+    }
+
+    .contact h1{
+        font-size:2.5rem;
+        padding-left: 20px;
+    }
+
+    .contact__map img{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding: 0 10px;
+    }
+
+    .contact__form{
+        padding: 30px;
+    }
+
+    .contact__form-title {
+        font-size: 1.5rem;
+    }
+
+    .contact__form label {
+        font-size: 1rem;
+    }
+
+    .contact__actions {
+        justify-content: flex-end;
+    }
+}

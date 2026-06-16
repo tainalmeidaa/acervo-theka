@@ -1,0 +1,45 @@
+
+/* estrutura do card de um livro apenas*/
+.book_container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease-in-out;
+    border-radius: 20px;
+}
+
+.book_cover {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* botão da seta nos livros */
+.book_arrow_btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .book_cover{
+       object-position: top;
+    }
+
+    .book_arrow_btn {
+        width: 50px;
+    }
+}
+
+

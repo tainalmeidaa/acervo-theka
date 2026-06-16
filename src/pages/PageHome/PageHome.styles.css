@@ -1,0 +1,303 @@
+/* -- Página inteira -- */
+
+.pagehome__content {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+    padding-bottom: 130px;
+    gap: 2rem;
+}
+
+
+/* --- Seção do Banner principal---*/
+
+/* Banner */
+
+.hero__banner {
+    background-color: var(--verdeoliva200);
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    max-height: 511px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 17px;
+    overflow: hidden;
+}
+
+/* Elementos à esquerda do banner (logo, texto e botão)*/
+
+.information__banner {
+    height: 100%;
+    min-width: 380px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 0;
+    padding-left: 63px;
+}
+
+.logo-texto__banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 34px;
+}
+
+h3 {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+}
+
+/* Imagem do banner à direita */
+
+.mascote__banner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mascote__banner img {
+    object-fit: cover;
+    position: relative;
+    transform: scale(1.2);
+    right: -160px;
+
+}
+
+/* --- Seção livros destaque da semana --- */
+
+.specialbooks {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.information__specialbooks {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 0;
+    gap: 25px;
+}
+
+
+.information__specialbooks h1 {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--rosa600);
+}
+
+.information__specialbooks p {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--cinza600);
+}
+
+.buttons__specialbooks {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+
+.specialbooks__cardbooks {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: calc(0.9);
+}
+
+.fila_cardbooks {
+    position: absolute;
+    width: 420px;
+    height: 600px;
+}
+
+/* --- empilhamento dos livros --- */
+
+/* livro - frente */
+.position-0 {
+    z-index: 3;
+    transform: translate(0, 25px) scale(1) rotate(-5deg);
+    cursor: pointer;
+}
+
+/* livro - meio */
+.position-1 {
+    z-index: 2;
+    transform: translate(0, -5px) scale(0.96) rotate(7deg);
+    pointer-events: none;
+}
+
+/* livro - ultimo */
+.position-2 {
+    z-index: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    pointer-events: none;
+}
+
+/* --- seção de estatísticas --- */
+
+.our__statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 58px;
+}
+
+.our__statistics h1{
+    color: var(--rosa600);
+    font-weight: 600;
+}
+
+.statistic__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%; 
+    min-width: 0;  
+    gap: 2rem;
+}
+
+.statistic__highlightgroup {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.statistic__subgroup {
+    overflow: hidden;
+    display: flex;
+    min-width: 100px;
+    gap: 1.5rem;
+}
+
+/* ---------- RESPONSIVIDADE MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+    .pagehome__content {
+        padding-top: 6rem;
+        gap: 1.5rem;
+        overflow: hidden;
+    }
+
+    .hero__banner {
+        flex-flow: column;
+        width: 90%;
+        height: auto;
+        padding: 0px;
+    }
+
+    .logo__banner {
+        width: 50%;
+    }
+
+    .information__banner {
+        padding-left: 20px;
+    }
+
+    .logo-texto__banner {
+        padding: 20px;
+        gap: 1rem;
+    }
+
+    .button__banner {
+        padding-left: 20px;
+    }
+
+    .mascote__banner img {
+        width: 100%;
+        bottom: 60px;
+        left: 50px;
+    }
+
+    .specialbooks {
+        flex-flow: column;
+        max-width: 80%;
+        height: auto;
+        gap: 0.5rem;
+    }
+
+    .information__specialbooks {
+        padding: 0;
+    }
+
+    .specialbooks h1 {
+        font-size: 2rem;
+    }
+
+    .specialbooks__cardbooks {
+        width: 100%;
+        min-height: 400px;
+        margin: 2rem;
+    }
+
+    .fila_cardbooks {
+        width: 280px;
+        height: 400px;
+    }
+
+
+    .our__statistics {
+        width: 80%;
+        gap: 1rem;
+    }
+
+
+    .statistic__content {
+        flex-flow: column-reverse;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .our__statistics h1 {
+        font-size: 2rem;
+    }
+
+    .statistic__subgroup {
+        width: 100%;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .statistic__highlightgroup svg {
+        height: auto;
+    }
+
+    .statistic__highlightgroup {
+        width: 100%;
+    }
+}

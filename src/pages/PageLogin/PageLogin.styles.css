@@ -1,0 +1,30 @@
+
+.login__links {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-style: Semi Bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.login__links a {
+    color: var(--laranja300);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.login__links a:hover {
+    text-decoration: underline;
+}
+
+.ButtonAuthLayout__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

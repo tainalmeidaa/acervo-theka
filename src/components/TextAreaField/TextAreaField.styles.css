@@ -1,0 +1,42 @@
+.textarea-field__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.textarea-field__label {
+    color: var(--rosa600);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.textarea-field__input {
+    width: 100%;
+    height: 133px; 
+    padding: 1rem; 
+    border: 2px solid var(--rosa600); 
+    border-radius: 20px;
+    background-color: transparent;
+    resize: none;
+    overflow-y: auto;
+    text-align: left;
+    vertical-align: top;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.textarea-field__input::placeholder {
+    color: var(--cinza); 
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 0.8rem;
+
+}
+
+.textarea-field__input:focus {
+    outline: none;
+}

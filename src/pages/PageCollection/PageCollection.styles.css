@@ -1,0 +1,302 @@
+/* --- Página inteira --- */
+.pagecollection__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    padding-top: 200px;
+    padding-bottom: 150px;
+}
+
+/* --- Seção novidades com o carrossel de livros ---*/
+.nov_container {
+    max-width: 1200px;
+    width: 100%;
+    /*display: flex;*/
+    display: grid;
+
+    grid-template-areas: 
+        "titulo carrossel"
+        "descricao carrossel";
+
+    grid-template-columns: 1fr 1fr; /* Layout desktop original */
+    gap: 20px;
+}
+
+/* ---- Ordenando os elementos da seção novidades ---*/
+
+.nov_title { grid-area: titulo; }
+.nov_carousel-books { grid-area: carrossel; }
+.nov_description { grid-area: descricao; }
+
+.nov_title {
+    color: var(--rosa600);
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 103.33px;
+}
+
+.nov_description {
+    font-family: DM Sans;
+    font-weight: 700;
+}
+
+
+.description_title-book {
+    color: var(--cinza600);
+    font-size: 40px;
+}
+
+.description_author-book {
+    color: var(--cinza600);
+    font-size: 20px;
+    margin-bottom: 4rem;
+}
+
+/* --- Carrossel de livros animado --- */
+.nov_carousel-books {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    max-height: 610px;
+    
+}
+
+
+/* Para os livros não clicados */
+.carousel_books-item {
+    flex: 1;
+    cursor: pointer;
+    min-height: 100px;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.carousel_books-item .book_arrow_btn svg {
+    transform: rotate(-90deg);
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Para livro clicado */
+.carousel_books-item.active_card {
+    flex: 3;
+    opacity: 1;
+}
+
+.carousel_books-item.active_card .book_arrow_btn svg {
+    transform: rotate(0deg);
+}
+
+
+/* --- Container com as seções: busca e filtros, livros e botões para passar as páginas --- */
+
+.catalog_contaneiner {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+/* --- Campo de pesquisa e filtros de busca --- */
+
+.arrow_bottom_icon {
+    color: var(--rosa600, #7a003c);
+    position: absolute;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Catálogo com os livros disponíveis*/
+
+.catalog_contaneiner {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.catalog_books {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px 20px;
+}
+
+.catalog_card {
+    width: 100%;
+    height: 100%;
+}
+
+/* Retira o icon de seta no componente BookCard (padrão)*/
+.catalog_books .book_arrow_btn svg {
+    display: none;
+}
+
+.catalog_book_item {
+    position: relative;
+
+}
+
+/* ---- camada ao passar mouse nos livros do catálogo ----*/
+.catalog_book_camada {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    padding: 14px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+}
+
+.camada_info {
+    color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1rem;
+}
+
+.camada-botao {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* Quando passar o mouse no item, mostra a camada */
+.catalog_book_item:hover .catalog_book_camada {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    width: 100%;
+}
+
+/*===========================================*/
+
+
+/* Botão para adicinar livros ao catálogo*/
+.catalog_addbtn {
+    background-color: var(--rosa600);
+    position: relative;
+    z-index: 1000;
+    top: -100px;
+    left: 200px;
+    border: none;
+    cursor: pointer;
+    width: 64px;
+    height: 44px;
+    border-radius: 30%;
+}
+
+/* --- Botões para navegar pelo catálogo --- */
+
+.pagination_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- Para todos os botões de paginação --- */
+.pagination_arrow,
+.pagination_item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+/* --- Para os números que estão inativos --- */
+.pagination_item {
+    color: var(--cinza200);
+    width: 40px;
+    height: 40px;
+}
+
+/* --- Para o número que estiver ativo --- */
+.pagination_item_active {
+    background-color: var(--rosa600);
+    color: var(--branco);
+    border-radius: 50%;
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (max-width: 768px){
+    .pagecollection__container {
+        gap: 4rem;
+    }
+    .nov_container{
+        grid-template-areas: 
+            "titulo"
+            "carrossel"
+            "descricao";
+        grid-template-columns: 1fr;
+        max-width: 90%;
+    }
+
+    .nov_title { 
+        font-size: 2.9rem;
+    }
+
+
+    .nov_carousel-books {
+        flex-direction: column;
+        flex: none;
+        height: 600px
+    }
+
+    .description_title-book {
+        font-size: 35px;
+    }
+
+    .carousel_books-item {
+        min-height: 0;
+        flex: 1; 
+        
+    }
+
+    .catalog_contaneiner {
+        gap: 10px;
+    }
+    
+    .catalog_books {
+        grid-template-columns: repeat(2, 1fr);
+        scale: calc(0.9);
+    }
+      
+    .catalog_book_camada {
+        height: 50%; 
+    }
+
+    .catalog_addbtn{
+        top: -700px;
+        left: 340px;
+    }
+
+    .camada_info{
+        width: 70%;
+    }
+
+    .pagination_container {
+        justify-content: center;
+    }
+}
