@@ -53,13 +53,12 @@
 
 .hero_content {
     flex: 1;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     gap: 20px;
-    padding-left: 5%;
+    padding-left: 30px;
 
 }
 
@@ -69,10 +68,11 @@
 }
 
 .hero_content_text {
-    max-width: 60%;
+    max-width: 65%;
     font-family: Inter;
     font-weight: 400;
     font-size: 18px;
+    padding-bottom: 20px;
 }
 
 

@@ -275,7 +275,7 @@
     }
 
     .catalog_contaneiner {
-        gap: 0;
+        gap: 10px;
     }
     
     .catalog_books {
@@ -288,8 +288,8 @@
     }
 
     .catalog_addbtn{
-        top: -600px;
-        left: 350px;
+        top: -700px;
+        left: 340px;
     }
 
     .camada_info{

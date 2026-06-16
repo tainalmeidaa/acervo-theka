@@ -23,7 +23,7 @@ export function ModalMaterialView({ isOpen, onClose, material, onEditClick }) {
                 }}
             >
 
-                {/* ---- botão de fechar ---- */}
+                {/* ---- botão fechar modal---- */}
                 <button
                     type="button"
                     className="btn-close position-absolute top-0 end-0 m-3 z-3"
@@ -31,15 +31,15 @@ export function ModalMaterialView({ isOpen, onClose, material, onEditClick }) {
                     aria-label="Close"
                 ></button>
 
-                <div className="material-view d-flex h-100" style={{borderRadius: '20px'}}>
+                <div className="material-view__inner d-flex h-100" style={{borderRadius: '20px'}}>
 
-                    {/* ----- lado esquerdo do modal: capa ----- */}
+                    {/* ----- Capa do livro ----- */}
                     <div
                         className="material-view_capa flex-shrink-0"
-                        style={{
+                        /*style={{
                             width: '40%',
                             height: '100%'
-                        }}
+                        }}*/
                     >
                         <img
                             src={material.capa}
@@ -49,7 +49,7 @@ export function ModalMaterialView({ isOpen, onClose, material, onEditClick }) {
                         />
                     </div>
 
-                    {/* ----- lado direito do modal contento informações do livro ----- */}
+                    {/* ----- Informações do livro ----- */}
                     <div
                         className="material-view_info bg-white p-4 p-md-5 d-flex flex-column justify-content-between"
                         style={{
